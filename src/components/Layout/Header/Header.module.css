@@ -1,7 +1,5 @@
 /* BUTTONS FONT */
 
-
-
 .header {
   position: relative;
   height: 115vh;
@@ -11,27 +9,22 @@
     ),
     url(../../../assets/images/homepage.jpg);
   background-size: cover;
-  background-position:  top;
-
+  background-position: top;
 }
 
 .homeText {
   font-family: inherit;
-  position: absolute;
-  top: 50%;
-
   font-weight: 600;
   font-size: 42px;
   line-height: 58px;
   letter-spacing: -1.5px;
   text-align: left;
-  transform: translate(-50%, -50%);
+  animation: moveInLeft 1.5s ease-out;
+  backface-visibility: hidden;
 }
 
 .homePageBtn {
   position: absolute;
-  top: 438px;
-  left: 85px;
   border: none;
   box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.5);
   border-radius: 50px;
@@ -39,32 +32,89 @@
   line-height: 28px;
   padding: 6px;
   width: 199px;
+  left: 2px;
+  margin-top: 23px;
+  animation: moveOnTop 1.5s ease-out;
+  backface-visibility: hidden;
+  
 }
 
 .articleBtn {
-    border: none;
-    box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.5);
-    border-radius: 50px;
-    color: rgba(104, 109, 224, 0.5);
-    line-height: 30px;
-    width: 109px;
-    right: 258px;
-    top: 26px;
-    position: absolute;
-    font-weight: 700;
+  border: none;
+  box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.5);
+  border-radius: 50px;
+  color: rgba(104, 109, 224, 0.5);
+  line-height: 30px;
+  width: 109px;
+  right: 258px;
+  top: 26px;
+  position: absolute;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.articleBtn:hover {
+  color: #ffffff;
+  background-color: rgba(104, 109, 224, 0.8);
 }
 
 .authBtn {
-    background: transparent;
-    border-radius: 26px;
-    border: 1px solid #ffffff;;
-    text-align: center;
-    color: #ffffff;
-    width: 109px;
-    font-size: 14px;
-    line-height: 28px;
-    right: 74px;
-    top: 26px;
-    position: absolute;
-    font-weight: 700;
+  background: transparent;
+  border-radius: 26px;
+  border: 1px solid #ffffff;
+  text-align: center;
+  color: #ffffff;
+  width: 109px;
+  font-size: 14px;
+  line-height: 28px;
+  right: 74px;
+  top: 26px;
+  position: absolute;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.authBtn:hover {
+  border: none;
+  color: rgba(104, 109, 224);
+}
+
+.infoBox {
+  position: absolute;
+  top: 50%;
+  transform: translate(15%, -57%);
+}
+
+@keyframes moveInLeft {
+  /* inital state of animation */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+  /* final state of animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveOnTop {
+  /* inital state of animation */
+  0% {
+    opacity: 0;
+    transform: translatey(140px);
+  }
+
+  80% {
+    transform: translatey(-10px);
+  }
+  /* final state of animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
