@@ -1,0 +1,70 @@
+/* BUTTONS FONT */
+
+
+
+.header {
+  position: relative;
+  height: 115vh;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0) 39.17%,
+      rgba(117, 16, 247, 0.37) 99.06%
+    ),
+    url(../../../assets/images/homepage.jpg);
+  background-size: cover;
+  background-position:  top;
+
+}
+
+.homeText {
+  font-family: inherit;
+  position: absolute;
+  top: 50%;
+
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 58px;
+  letter-spacing: -1.5px;
+  text-align: left;
+  transform: translate(-50%, -50%);
+}
+
+.homePageBtn {
+  position: absolute;
+  top: 438px;
+  left: 85px;
+  border: none;
+  box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.5);
+  border-radius: 50px;
+  color: rgba(104, 109, 224, 0.5);
+  line-height: 28px;
+  padding: 6px;
+  width: 199px;
+}
+
+.articleBtn {
+    border: none;
+    box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.5);
+    border-radius: 50px;
+    color: rgba(104, 109, 224, 0.5);
+    line-height: 30px;
+    width: 109px;
+    right: 258px;
+    top: 26px;
+    position: absolute;
+    font-weight: 700;
+}
+
+.authBtn {
+    background: transparent;
+    border-radius: 26px;
+    border: 1px solid #ffffff;;
+    text-align: center;
+    color: #ffffff;
+    width: 109px;
+    font-size: 14px;
+    line-height: 28px;
+    right: 74px;
+    top: 26px;
+    position: absolute;
+    font-weight: 700;
+}
