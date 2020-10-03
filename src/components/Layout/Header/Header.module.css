@@ -18,7 +18,7 @@
   font-size: 42px;
   line-height: 58px;
   letter-spacing: -1.5px;
-  text-align: left;
+
   animation: moveInLeft 1.5s ease-out;
   backface-visibility: hidden;
 }
@@ -36,7 +36,18 @@
   margin-top: 23px;
   animation: moveOnTop 1.5s ease-out;
   backface-visibility: hidden;
-  
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.homePageBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.homePageBtn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
 .articleBtn {
@@ -81,6 +92,7 @@
 
 .infoBox {
   position: absolute;
+  text-align: left;
   top: 50%;
   transform: translate(15%, -57%);
 }
