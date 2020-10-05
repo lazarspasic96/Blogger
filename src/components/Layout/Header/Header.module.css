@@ -15,8 +15,8 @@
 .homeText {
   font-family: inherit;
   font-weight: 600;
-  font-size: 42px;
-  line-height: 58px;
+  font-size: 4.2rem;
+  line-height: 5.8rem;
   letter-spacing: -1.5px;
 
   animation: moveInLeft 1.5s ease-out;
@@ -30,9 +30,9 @@
   border-radius: 50px;
   color: rgba(104, 109, 224, 0.5);
   line-height: 28px;
-  padding: 6px;
-  width: 199px;
-  left: 2px;
+  padding: 0.6rem;
+  width: 20rem;
+  left: 0.2rem;
   margin-top: 23px;
   animation: moveOnTop 1.5s ease-out;
   backface-visibility: hidden;
@@ -56,9 +56,9 @@
   border-radius: 50px;
   color: rgba(104, 109, 224, 0.5);
   line-height: 30px;
-  width: 109px;
-  right: 258px;
-  top: 26px;
+  width: 10.9rem;
+  right: 25.8rem;
+  top: 2.6rem;
   position: absolute;
   font-weight: 700;
   cursor: pointer;
@@ -76,10 +76,10 @@
   text-align: center;
   color: #ffffff;
   width: 109px;
-  font-size: 14px;
-  line-height: 28px;
-  right: 74px;
-  top: 26px;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+  right: 7.4rem;
+  top: 2.6rem;
   position: absolute;
   font-weight: 700;
   cursor: pointer;
@@ -101,11 +101,11 @@
   /* inital state of animation */
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   /* final state of animation */
   100% {
@@ -118,11 +118,11 @@
   /* inital state of animation */
   0% {
     opacity: 0;
-    transform: translatey(140px);
+    transform: translatey(14rem);
   }
 
   80% {
-    transform: translatey(-10px);
+    transform: translatey(-1rem);
   }
   /* final state of animation */
   100% {
