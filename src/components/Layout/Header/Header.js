@@ -2,6 +2,7 @@
 import React from 'react'
 import classes from './Header.module.css'
 import Button from '../../UI/Button/Button'
+import Card from '../../UI/Card/Card'
 import {NavLink} from 'react-router-dom'
 
 const Header = (props) => {
@@ -18,7 +19,9 @@ const Header = (props) => {
         <Button className={classes.authBtn}>Log in</Button>
 
     </header>
-    <div>eee</div>
+    <div>
+        <Card />
+    </div>
     </>
 
 }
