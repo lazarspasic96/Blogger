@@ -1,0 +1,20 @@
+.inputBox {
+    width: 100%;
+    padding: 8px;
+
+}
+
+.Input {
+    border: 1px solid #CED4DA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 36rem;
+    height: 3.6rem;
+    outline: none;
+    padding: 1.2rem 0.5rem 1rem 1.2rem;
+
+
+    &:focus {
+        border-bottom: .2rem solid #7158e2;
+    }
+}

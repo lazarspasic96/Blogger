@@ -1,0 +1,37 @@
+
+.authorization {
+    width: 100%;
+  
+    margin: auto;
+    padding-top: 15rem;
+    padding-bottom:  15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.authForm {
+    width: 40rem;
+
+
+}
+
+.imageBox {
+    width: 400px;
+
+
+    .authImg {
+        width: 320px;
+     
+    }
+}
+
+
+@media (max-width: 766px) {
+    .authorization {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
