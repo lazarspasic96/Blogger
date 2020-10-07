@@ -3,20 +3,63 @@ $primary-Color-light: #9d54fa;
 .navBar {
   .navBtn {
     background-color: #ffffff;
-    height: 7rem;
-    width: 7rem;
+    height: 5rem;
+    width: 5rem;
     position: fixed;
     top: 2.5rem;
     right: 2.5rem;
     border-radius: 50%;
     border: none;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba(#000000, 0.1);
+    cursor: pointer;
+
+    .rotate {
+      width: 2.1rem;
+      height: 2px;
+      background-color: #333;
+      margin: auto;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      transition: all 0.2s;
+      &:nth-child(2) {
+        background-color: transparent;
+      }
+      &:nth-child(1) {
+        transform: rotate(135deg);
+        top: 19px;
+        left: 15px;
+        position: absolute;
+      }
+      &:nth-child(3) {
+        transform: rotate(-135deg);
+        top: 19px;
+        left: 15px;
+        position: absolute;
+      }
+    }
+
+    .default {
+      width: 2.1rem;
+      height: 2px;
+      background-color: #333;
+      margin: auto;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    &:hover {
+      .default {
+        margin-bottom: 0.7rem;
+        margin-top: 0.7rem;
+      }
+    }
   }
 
   .btnBox {
     position: fixed;
-    height: 6rem;
-    width: 6rem;
+    height: 4rem;
+    width: 4rem;
     border-radius: 50%;
     position: fixed;
     top: 3rem;
@@ -26,7 +69,7 @@ $primary-Color-light: #9d54fa;
       $primary-Color-light
     );
     z-index: 1000;
-    transform: scale(50);
+    transition: all 0.6s;
   }
 
   .navigation {
@@ -51,11 +94,9 @@ $primary-Color-light: #9d54fa;
     margin: 1rem;
     position: relative;
     transition: all 0.4s;
-    
+
     &:hover {
       transform: scale(0.9);
- 
-
     }
   }
 

@@ -15,6 +15,7 @@ class Articles extends React.Component {
                 <section>
                     <header>
                                <h1 className={classes.title}>Trending Articles</h1>
+                               <NavBar />
                     </header>
          
                     <main className = {classes.articleContainer}>
