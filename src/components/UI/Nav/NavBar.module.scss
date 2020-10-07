@@ -1,41 +1,77 @@
+$primary-Color-dark: #7510f7;
+$primary-Color-light: #9d54fa;
+.navBar {
+  .navBtn {
+    background-color: #ffffff;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 2.5rem;
+    right: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    z-index: 2000;
+  }
 
-.articleBtn {
-    border: none;
-    box-shadow: 0rem .4rem 2rem rgba(104, 109, 224, 0.5);
-    border-radius: 5rem;
-    color: rgba(104, 109, 224, 0.5);
-    line-height: 3rem;
-    width: 10.9rem;
-    right: 25.8rem;
-    top: 2.6rem;
+  .btnBox {
+    position: fixed;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    background-image: radial-gradient(
+      $primary-Color-dark,
+      $primary-Color-light
+    );
+    z-index: 1000;
+    transform: scale(50);
+  }
+
+  .navigation {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+  }
+
+  .navigationList {
     position: absolute;
-    font-weight: 700;
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
-  
-  .articleBtn:hover {
-    color: #ffffff;
-    background-color: rgba(104, 109, 224, 0.8);
-  }
-  
-  .authBtn {
-    background: transparent;
-    border-radius: 2.6rem;
-    border: .1rem solid #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
     text-align: center;
+  }
+
+  .item {
+    margin: 1rem;
+    position: relative;
+    transition: all 0.4s;
+    
+    &:hover {
+      transform: scale(0.9);
+ 
+
+    }
+  }
+
+  .navLink {
+    font-size: 3rem;
+    text-decoration: none;
     color: #ffffff;
-    width: 10.9rem;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-    right: 7.4rem;
-    top: 2.6rem;
-    position: absolute;
-    font-weight: 700;
-    cursor: pointer;
+    font-weight: 200;
+    text-transform: uppercase;
+    transition: all 0.4s;
+
+    &:hover,
+    &:active {
+      color: $primary-Color-dark;
+      background-color: #ffffff;
+      transform: translate(-50%);
+    }
   }
-  
-  .authBtn:hover {
-    border: none;
-    color: rgba(104, 109, 224, .5);
-  }
+}
