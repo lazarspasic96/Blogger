@@ -10,7 +10,7 @@ import user from '../../../assets/images/user.svg'
 
 const card = (props) => {
     return (<>
-        <div className={classes.card}>
+        <article className={classes.card}>
             <div className={classes.imgBox}>
                 <img src={cardImg} alt='' />
             </div>
@@ -38,7 +38,7 @@ const card = (props) => {
             </div>
 
           
-        </div>
+        </article>
 
 
     </>)

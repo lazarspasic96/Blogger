@@ -1,12 +1,17 @@
 import React from 'react';
-import Header from './components/Layout/Header/Header';
+import PublicMain from './containers/PublicMain';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
+class App extends React.Component {
+
+
+
+  render() {
+    return (<>
+<PublicMain />
+ 
+
+    </>)
+  }
 }
 
 export default App;
