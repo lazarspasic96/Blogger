@@ -4,7 +4,8 @@ import classes from './Input.module.scss';
 
 
 const Input = (props) => {
-    const inputClasses = [classes.Input];
+    console.log(props.className)
+    const inputClasses = [classes.Input, props.className];
 
 
     if (props.isValid && props.touched) {

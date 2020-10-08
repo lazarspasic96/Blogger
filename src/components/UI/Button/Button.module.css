@@ -1,4 +1,5 @@
 /* BUTTON BASIC SETUP */
 .Button {
   outline: none;
+  cursor: pointer;
 }
