@@ -2,6 +2,7 @@ import classes from './Authorization.module.scss'
 import React from 'react'
 import authorizationImg from '../../assets/images/authorization.svg'
 import LogIn from './LogIn/LogIn'
+import SignUp from './SignUp/SignUp'
 
 
 class Authorization extends React.Component {
@@ -22,7 +23,7 @@ class Authorization extends React.Component {
                     </div>
 
                     <div className={classes.authForm}>
-                        <LogIn />
+                      <SignUp />
                     </div>
                 </section>
             </>
