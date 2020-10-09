@@ -1,6 +1,109 @@
 .sideBar {
+  width: 25rem;
+  background-color: #373b53;
+  padding: 2rem 0rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh; 
 
-    height: 100vh;
-    width: 10rem;
-    background-color: red;
+  .logoBox {
+    padding: 0rem 1rem 0rem;
+    height: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 2.8rem;
+      margin-left: 2rem;
+    }
+
+    p {
+      font-size: 2.4rem;
+      margin-left: 3rem;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
 }
+
+.iconBox {
+  text-align: left;
+  padding: 1.2rem;
+  padding-left: 3rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  img {
+    width: 2.4rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #a4a6b3;
+    margin-left: 5rem;
+  }
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.menuContainer {
+  margin-top: 5rem;
+}
+
+.navLink {
+  text-decoration: none;
+}
+
+.logoutBox {
+  position: absolute;
+  bottom: 2.9rem;
+  left: 3.4rem;
+  display: flex;
+  color: #fff;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  p {
+    font-size: 1.6rem;
+    color: #a4a6b3;
+    margin-left: 5rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.1rem);
+
+  }
+}
+
+ @media (max-width: 766px) {
+  .sideBar {
+    width: 9rem;
+    height: 100vh;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  .iconBox {
+    p {
+      display: none;
+    }
+  }
+
+  .logoutBox {
+      display: none;
+  }
+
+
+ 
+
+} 

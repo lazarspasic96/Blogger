@@ -1,7 +1,7 @@
 import classes from './DashBoard.module.scss'
 import React from 'react'
 import Nav from '../../components/UI/Nav/Nav'
-import Sidebar from '../../components/Layout/Sidebar/SideBar' 
+import Sidebar from '../../components/Layout/Sidebar/SideBar'
 
 class DashBoard extends React.Component {
 
@@ -10,12 +10,15 @@ class DashBoard extends React.Component {
 
         return (
             <>
-                <Nav />
-                <Sidebar />
-                
-                <main>
-                    {this.props.children}
-                </main>
+                <section className ={classes.mainWrapper}>
+                    <Nav />
+                    <Sidebar />
+
+                    <main >
+                        {this.props.children}
+                    </main>
+                </section>
+
             </>
         )
     }

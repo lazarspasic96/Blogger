@@ -1,0 +1,53 @@
+.newPostForm {
+  width: 45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .formInput {
+    width: 100%;
+    input{
+      width: 100%;
+      padding: 2rem;
+    }
+
+    textarea {
+        width: 100%;
+        height: 20rem;
+    }
+
+    .btnContainer {
+      width: 90%;
+      margin: auto;
+
+      button {
+        width: 100%;
+        background: linear-gradient(275.76deg, #7158e2 44.33%, #cd84f1 98.56%);
+        border-radius: 1.5rem;
+        border: none;
+        outline: none;
+        color: #ffff;
+        height: 3rem;
+        transition: all .2s;
+        
+        &:hover {
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+          transform: translateY(-.2rem);
+        }
+
+        &:active {
+          transform: translateY(-.1rem);
+          box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        }
+      }
+    }
+  }
+}
+
+.header {
+  text-align: center;
+  font-size: 1.9rem;
+  color:  #414b56;
+  padding-bottom: 1.5rem;
+  text-transform: uppercase;
+}

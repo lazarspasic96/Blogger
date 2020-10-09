@@ -1,23 +1,34 @@
 import React from 'react'
 import DashBoard from './DashBoard/DashBoard'
 import {Route, Switch} from 'react-router-dom'
-class PublicMain extends React.Component {
+import NewArticle from './DashBoard/NewArticle/NewArticle'
+
+class PrivateMain extends React.Component {
 
 
     render() {
         return <>
-            <Switch>
+        
+        
               
-                <Route  path='/dashboard'>
-                  <DashBoard>
-                    
+                <Route  path='/'>
+
+          
+                    <DashBoard>
+                   <Switch>
+                       <Route path = '/new-article' component = {NewArticle} />
+                   </Switch>
                   </DashBoard>
+               
+                  
+
+
                 </Route>
           
-            </Switch>
+        
 
         </>
     }
 }
 
-export default PublicMain;
+export default PrivateMain;
