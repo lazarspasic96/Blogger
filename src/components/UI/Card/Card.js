@@ -9,19 +9,26 @@ import user from '../../../assets/images/user.svg'
 
 
 const card = (props) => {
+    let photo = cardImg
+    if (props.postData.photo && props.postData.photo.includes( 'http')) {
+        photo = props.postData.photo
+
+
+    }
+    console.log(photo)
     return (<>
         <article className={classes.card}>
             <div className={classes.imgBox}>
-                <img src={cardImg} alt='' />
+                <img src={photo} alt='' />
             </div>
 
             <div className={classes.infoBox}>
                 <div className={classes.textBox}>
-                    <h1>Lorem ipsum title</h1>
-                    <p>Our team was inspired by the seven skills of highly effective programmers created by the TechLead.
-                    We wanted to provide our own take on the topic...
+                    <h1>{props.postData.title}</h1>
+                    <p> {
+                        props.postData.text}
                     </p>
-                    <span className={classes.readMore}>Read more Link</span>
+                    <span className={classes.readMore}>Read more</span>
                 </div>
 
                 <div className={classes.profileImgBox}>
@@ -29,15 +36,15 @@ const card = (props) => {
                     <span>Lazar Spasic</span>
                 </div>
 
-        
+
                 <div className={classes.likeBox}>
-                    <img className={classes.unlike} src={unlike} />
+                    {/*         <img className={classes.unlike} src={unlike} /> */}
                     <img className={classes.like} src={like} />
                 </div>
 
             </div>
 
-          
+
         </article>
 
 

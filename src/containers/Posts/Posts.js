@@ -2,22 +2,15 @@ import classes from './Posts.module.scss';
 import React from 'react'
 import Card from '../../components/UI/Card/Card'
 import NavBar from '../../components/UI/Nav/Nav';
-import axios from '../../services/axios'
+import * as action from '../../store/action/index'
+import { connect } from 'react-redux'
 
 class Posts extends React.Component {
-    constructor(props) {
-        super() 
-            this.state = {
-               articles : []
-            
-        }
-    }
 
-    componentDidMount () {
-        axios()
-        .then(res => {
-            console.log(res.data)
-        })
+
+    componentDidMount() {
+        this.props.fetchPosts()
+        console.log(this.props.fetchedPosts)
 
     }
 
@@ -27,26 +20,17 @@ class Posts extends React.Component {
 
         return (
             <>
-             
+
                 <section>
                     <header>
-                               <h1 className={classes.title}>Trending Articles</h1>
-                               <NavBar />
+                        <h1 className={classes.title}>Trending Articles</h1>
+                        <NavBar />
                     </header>
-         
-                    <main className = {classes.articleContainer}>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                 </main>
-                   
+
+                    <main className={classes.articleContainer}>
+           {this.props.fetchedPosts.map(post => <Card postData = {post}/>)}
+                    </main>
+
                 </section>
 
             </>
@@ -54,5 +38,17 @@ class Posts extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        fetchedPosts: state.post.allPosts
+    }
+}
 
-export default Posts;
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchPosts: () => dispatch(action.onFetchPosts())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

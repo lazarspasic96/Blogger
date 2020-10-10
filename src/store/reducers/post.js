@@ -4,19 +4,37 @@ import Post from '../../models/Post'
 const initialState = {
     allPosts: [],
     favouritePosts: [],
-    myPosts: []
+    myPosts: [],
+    loading: false,
+    error: null,
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_POST_SUCCESS:
+        case actionTypes.FETCH_POSTS_START:
+            return {
+                ...state,
+                loading: action.loading
+            }
+
+
+
+        case actionTypes.FETCH_POSTS_SUCCESS:
             return {
                 ...state,   
-                myPosts: null 
+                allPosts: action.posts,
+                loading: action.loading,
+
+            }
+        case actionTypes.FETCH_POSTS_FAIL:
+            return {
+                ...state,   
+                error: action.error,
+                loading: action.loading,
 
             }
             
-            break;
+         
     
         default:
             return state
