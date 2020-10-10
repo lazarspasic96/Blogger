@@ -1,9 +1,25 @@
-import classes from './Articles.module.scss';
+import classes from './Posts.module.scss';
 import React from 'react'
 import Card from '../../components/UI/Card/Card'
 import NavBar from '../../components/UI/Nav/Nav';
+import axios from '../../services/axios'
 
-class Articles extends React.Component {
+class Posts extends React.Component {
+    constructor(props) {
+        super() 
+            this.state = {
+               articles : []
+            
+        }
+    }
+
+    componentDidMount () {
+        axios()
+        .then(res => {
+            console.log(res.data)
+        })
+
+    }
 
 
 
@@ -39,4 +55,4 @@ class Articles extends React.Component {
 }
 
 
-export default Articles;
+export default Posts;

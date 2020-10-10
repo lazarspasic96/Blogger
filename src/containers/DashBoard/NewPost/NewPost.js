@@ -1,10 +1,10 @@
 import React from 'react'
 import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components/UI/Button/Button'
-import classes from './NewArticle.module.scss'
+import classes from './NewPost.module.scss'
 import Switcher from '../../../components/UI/Switcher/Switcher'
 
-class NewArticle extends React.Component {
+class NewPost extends React.Component {
 
     constructor(props) {
         super()
@@ -108,7 +108,7 @@ class NewArticle extends React.Component {
                     <form className={classes.formInput} onSubmit={this.onSubmitForm}>
                         {newPost}
                         <div className = {classes.btnContainer}>
-                                  <Button disabled={!this.state.formIsValid} clicked={this.onSubmitForm}>Save Article</Button>
+                                  <Button disabled={!this.state.formIsValid} clicked={this.onSubmitForm}>Save Post</Button>
                         </div>
                   
                     </form>
@@ -120,4 +120,4 @@ class NewArticle extends React.Component {
 }
 
 
-export default NewArticle
+export default NewPost

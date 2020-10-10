@@ -1,7 +1,7 @@
 import React from 'react'
 import DashBoard from './DashBoard/DashBoard'
 import {Route, Switch} from 'react-router-dom'
-import NewArticle from './DashBoard/NewArticle/NewArticle'
+import NewPost from './DashBoard/NewPost/NewPost'
 
 class PrivateMain extends React.Component {
 
@@ -16,7 +16,7 @@ class PrivateMain extends React.Component {
           
                     <DashBoard>
                    <Switch>
-                       <Route path = '/new-article' component = {NewArticle} />
+                       <Route path = '/new-post' component = {NewPost} />
                    </Switch>
                   </DashBoard>
                
