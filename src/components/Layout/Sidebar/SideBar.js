@@ -24,7 +24,7 @@ const SideBar = (props) => {
                 </div>
 
                 <div className={classes.menuContainer}>
-                    <Link className={classes.navLink} to='/new-article'>
+                    <Link className={classes.navLink} to='/new-post'>
                         <div className={classes.iconBox}>
                             <img src={addPost} />
                             <p>New Article</p>

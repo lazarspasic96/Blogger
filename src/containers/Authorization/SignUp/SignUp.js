@@ -2,10 +2,12 @@ import React from 'react'
 import classes from './SignUp.module.scss'
 import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components//UI/Button/Button'
-import {Redirect} from 'react-router-dom'
+import {Redirect, withRouter} from 'react-router-dom'
 import NavBar from '../../../components/UI/Nav/Nav'
+import * as action from '../../../store/action/index'
+import {connect} from 'react-redux'
 
-class LogIn extends React.Component {
+class SignUp extends React.Component {
     state = {
         auth: {
 
@@ -66,7 +68,9 @@ class LogIn extends React.Component {
                 touched: false
 
             }
+            
         },
+        isAuth: this.props.isAuth
     }
 
     inputHandler = (event, inputIdentifier) => {
@@ -120,46 +124,54 @@ class LogIn extends React.Component {
 
     }
 
+    componentDidMount () {
+   
+    }
+
+
 
     render() {
-        const updatedAuth = [];
+        const updatedForm = [];
+
         for (let key in this.state.auth) {
-            updatedAuth.push({
+            updatedForm.push({
                 id: key,
                 config: this.state.auth[key]
             })
-
         }
 
-        const form = updatedAuth.map(formElement => {
+        const form = updatedForm.map(formElement => {
             return <Input
-                key={formElement.id}
+                key = {formElement.id}
                 changed={(event) => this.inputHandler(event, formElement.id)}
                 elementType={formElement.config.elementType}
+                label={formElement.config.label}
                 elementConfig={formElement.config.elementConfig}
                 touched={formElement.config.touched}
                 value={formElement.config.value}
-                valueType={formElement.id}
+                isValid = {!formElement.config.valid}
+                shoudBeValidate={formElement.config.validation}
+                valueType = {formElement.id}
 
             />
+
         })
 
         let redirecting = null
 
-        if(this.props.isAuth) {
-            console.log('uso jee')
-            return redirecting = <Redirect to = '/dashboard' />
+        if(this.state.isAuth || this.props.isAuth) {
+         this.props.history.push('/dashboard')
         }
-        
         return <div className={classes.signIn}>
+  
             <NavBar />
   
-            <form onSubmit={this.loginHandler}>
-       
-                <p className = {classes.signInText}>Login</p>
+            <form onSubmit={this.onSignUpHandler}>
+            {redirecting}
+                <p className = {classes.signInText}>Sign Up</p>
                 {form}
 
-                <Button className={classes.signInBtn}>Login</Button>
+                <Button className={classes.signInBtn}>Sign Up</Button>
                 <p className={classes.switcher} onClick={this.props.onSwitch}>Alredy have an account? Click here to Login!</p>
             </form>
         </div>
@@ -167,4 +179,16 @@ class LogIn extends React.Component {
 
 }
 
-export default LogIn
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.token
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignUp: (signUpData) => dispatch(action.signUp(signUpData))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))

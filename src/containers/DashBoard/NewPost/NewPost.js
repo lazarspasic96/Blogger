@@ -3,7 +3,8 @@ import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components/UI/Button/Button'
 import classes from './NewPost.module.scss'
 import Switcher from '../../../components/UI/Switcher/Switcher'
-
+import * as action from '../../../store/action/index'
+import {connect} from 'react-redux'
 class NewPost extends React.Component {
 
     constructor(props) {
@@ -73,6 +74,77 @@ class NewPost extends React.Component {
         }
 
     }
+    inputHandler = (event, inputIdentifier) => {
+
+        const updatedNewPostForm = {
+            ...this.state.newPostForm,
+            [inputIdentifier]: {
+                ...this.state.newPostForm[inputIdentifier],
+                touched: true,
+                valid: this.checkValidity(inputIdentifier, event.target.value),
+                value: event.target.value
+            }
+        }
+
+        let formIsValid = true;
+
+        for(let key in updatedNewPostForm) {
+            formIsValid = updatedNewPostForm[key].valid && true
+        }
+
+
+        this.setState({newPostForm: updatedNewPostForm, formIsValid: formIsValid})
+
+    
+
+    }
+
+    checkValidity = (inputIdentifier, value) => {
+        let isValid = true
+        if(inputIdentifier === 'title') {
+            isValid = value.length > 10 && isValid
+        }
+
+        if(inputIdentifier === 'subTitle') {
+            isValid = value.length > 5 && isValid
+        }
+
+        if(inputIdentifier === 'image') {
+            isValid = (value.includes('.jpg') || value.includes('.png') 
+            || value.includes('.jpeg') || value.includes('.gif')) && isValid
+        }
+
+        if(inputIdentifier === 'text') {
+            isValid = value.trim().length > 40 && isValid
+        }
+
+        return isValid
+
+    }
+
+    isPublic () {
+        this.setState(prevState => {
+            return {
+                isPublic: !prevState.isPublic
+            }
+        })
+    }
+
+    onSubmitForm = (event) =>{
+        event.preventDefault()
+
+        const postData = {
+            title: this.state.newPostForm.title.value,
+            subtitle: this.state.newPostForm.subTitle.value,
+            imageUrl: this.state.newPostForm.image.value,
+            text: this.state.newPostForm.text.value,
+            isPublic: this.state.isPublic
+        }
+        this.props.sendNewPost(postData)
+
+        this.props.history.push('/my-posts')
+       
+    }
 
     render() {
 
@@ -120,4 +192,9 @@ class NewPost extends React.Component {
 }
 
 
-export default NewPost
+const mapDispatchToProps = dispatch => {
+    return {
+        sendNewPost: (postData) => dispatch(action.newPost(postData))
+    }
+}
+export default connect(null, mapDispatchToProps)(NewPost)

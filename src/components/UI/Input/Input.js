@@ -4,7 +4,6 @@ import classes from './Input.module.scss';
 
 
 const Input = (props) => {
-    console.log(props.className)
     const inputClasses = [classes.Input, props.className];
 
 

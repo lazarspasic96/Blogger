@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './NavBar.module.scss'
 import { Link, NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
+import {withRouter} from 'react-router-dom'
 
 class NavBar extends React.Component {
     state = {
@@ -17,7 +18,7 @@ class NavBar extends React.Component {
 
 
     render() {
-        let navBar = null
+console.log(this.props.history.location.pathname)
 
 
         return (
@@ -37,7 +38,6 @@ class NavBar extends React.Component {
 
                     <nav className={classes.navigation} style={!this.state.toogleClass ? { display: 'none' } : null}>
                         <ul className={classes.navigationList}>
-                            <li className={classes.item}> <Link className={classes.navLink} to='/authorization'>Log in </Link></li>
                             <li className={classes.item}> <Link className={classes.navLink} to='/articles'>Articles </Link></li>
                             <li className={classes.item}> <Link className={classes.navLink} to='/our-story'>Our Story </Link></li>
                             <li className={classes.item}> <Link className={classes.navLink} to='/get-started'> Get Stared </Link></li>
@@ -54,5 +54,5 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar
+export default withRouter(NavBar)
 

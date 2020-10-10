@@ -26,7 +26,7 @@ const card = (props) => {
                 <div className={classes.textBox}>
                     <h1>{props.postData.title}</h1>
                     <p> {
-                        props.postData.text}
+                        props.postData.subTitle}
                     </p>
                     <span className={classes.readMore}>Read more</span>
                 </div>

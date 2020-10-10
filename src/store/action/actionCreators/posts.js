@@ -37,3 +37,42 @@ export const onFetchPosts = () => {
 
     }
 }
+
+
+export const newPostSucces = () => {
+    return {
+        type: actionTypes.NEW_POST_SUCCESS,
+        loading: false,
+    }
+}
+export const newPostFail = (error) => {
+    return {
+        type: actionTypes.NEW_POST_FAIL,
+        loading: false,
+        error: error
+    }
+}
+
+export const newPostStart = () => {
+    return {
+        type: actionTypes.NEW_POST_START,
+        loading: true
+    }
+}
+
+export const newPost = (postData) => {
+    return dispatch => {
+        dispatch(newPostStart())
+
+        axios.post('posts', postData)
+        
+        .then(res => {
+            console.log(res.data)
+            dispatch(newPostSucces())
+        
+        })
+        .catch(error => {
+            dispatch(newPostFail(error))
+        })
+    }
+}

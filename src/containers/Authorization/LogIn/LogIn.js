@@ -3,10 +3,12 @@ import classes from './Login.module.scss'
 import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components//UI/Button/Button'
 import {Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+import * as action from '../../../store/action/index'
 
 class LogIn extends React.Component {
     constructor(props) {
-        super(props)
+        super()
         this.state = {
             auth: {
 
@@ -90,7 +92,6 @@ class LogIn extends React.Component {
         let redirecting = null
 
         if(this.props.isAuth) {
-            console.log('uso jee')
             return redirecting = <Redirect to = '/dashboard' />
         }
         
@@ -109,5 +110,16 @@ class LogIn extends React.Component {
     }
 
 }
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.token
+    }
+}
 
-export default LogIn
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin: (email, password) => dispatch(action.login(email, password))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn)
