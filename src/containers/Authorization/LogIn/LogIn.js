@@ -2,8 +2,8 @@ import React from 'react'
 import classes from './Login.module.scss'
 import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components//UI/Button/Button'
-import {Redirect} from 'react-router-dom'
-import {connect} from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 import * as action from '../../../store/action/index'
 
 class LogIn extends React.Component {
@@ -63,16 +63,16 @@ class LogIn extends React.Component {
     }
 
     chechkValidity = (inputIdentifier, value) => {
-      
+
         let isValid = true
 
         const emailCheck = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
-        if(inputIdentifier === 'email') {
+        if (inputIdentifier === 'email') {
             isValid = emailCheck.test(value) && isValid
         }
 
-        if(inputIdentifier === 'password') {
+        if (inputIdentifier === 'password') {
             isValid = value.length >= 6 && isValid
         }
 
@@ -81,7 +81,7 @@ class LogIn extends React.Component {
 
 
     }
-    
+
 
 
     loginHandler = (event) => {
@@ -92,6 +92,8 @@ class LogIn extends React.Component {
 
 
     render() {
+
+        console.log(this.props.onError)
         const updatedAuth = [];
         for (let key in this.state.auth) {
             updatedAuth.push({
@@ -108,7 +110,7 @@ class LogIn extends React.Component {
                 elementType={formElement.config.elementType}
                 elementConfig={formElement.config.elementConfig}
                 touched={formElement.config.touched}
-                isValid = {!formElement.config.valid}
+                isValid={!formElement.config.valid}
                 value={formElement.config.value}
                 valueType={formElement.id}
 
@@ -117,18 +119,19 @@ class LogIn extends React.Component {
 
         let redirecting = null
 
-        if(this.props.isAuth) {
-            return redirecting = <Redirect to = '/dashboard' />
+        if (this.props.isAuth) {
+            return redirecting = <Redirect to='/dashboard' />
         }
-        
+
         return <div className={classes.logIn}>
 
-  
-            <form onSubmit={this.loginHandler}>
-       
-                <p className = {classes.logInText}>Login</p>
-                {form}
 
+            <form onSubmit={this.loginHandler}>
+
+
+                <p className={classes.logInText}>Login</p>
+                {form}
+                <p className={classes.errorHandler}>{this.props.onError}</p>
                 <Button className={classes.logInBtn}>Login</Button>
                 <p className={classes.switcher} onClick={this.props.onSwitch}>Don't have an account? Click here to Sign Up!</p>
             </form>
@@ -138,7 +141,8 @@ class LogIn extends React.Component {
 }
 const mapStateToProps = state => {
     return {
-        isAuth: state.auth.token
+        isAuth: state.auth.token,
+        onError: state.auth.error
     }
 }
 

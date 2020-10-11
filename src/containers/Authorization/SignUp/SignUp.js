@@ -170,7 +170,7 @@ class SignUp extends React.Component {
             {redirecting}
                 <p className = {classes.signInText}>Sign Up</p>
                 {form}
-
+                <p className={classes.errorHandler}>{this.props.onError}</p>
                 <Button className={classes.signInBtn}>Sign Up</Button>
                 <p className={classes.switcher} onClick={this.props.onSwitch}>Alredy have an account? Click here to Login!</p>
             </form>
@@ -181,7 +181,8 @@ class SignUp extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isAuth: state.auth.token
+        isAuth: state.auth.token,
+        onError: state.auth.error
     }
 }
 
