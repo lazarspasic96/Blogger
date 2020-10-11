@@ -15,7 +15,7 @@ class PublicMain extends React.Component {
                 <Route exact path='/' component={Header} />
                 {/*         <Route  path = '/' component = {Footer} /> */}
              
-                <Route exact path='/articles' component={Posts} />
+                <Route exact path='/posts' component={Posts} />
                 <Route exact path='/authorization' component={Authorization} />
             </Switch>
 

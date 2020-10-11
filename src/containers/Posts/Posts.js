@@ -6,24 +6,34 @@ import * as action from '../../store/action/index'
 import { connect } from 'react-redux'
 
 class Posts extends React.Component {
-
+    constructor(props) {
+        super()
+        this.state = {
+            posts: null
+        }
+    }
 
     componentDidMount() {
         this.props.fetchPosts()
-        console.log(this.props.fetchedPosts)
+
+ 
+        
+
 
     }
 
 
 
     render() {
+ 
+
 
         return (
             <>
 
                 <section>
                     <header>
-                        <h1 className={classes.title}>Trending Articles</h1>
+                        <h1 className={classes.title}>Trending Posts</h1>
                         <NavBar />
                     </header>
 

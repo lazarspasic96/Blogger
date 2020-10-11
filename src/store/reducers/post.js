@@ -3,6 +3,7 @@ import Post from '../../models/Post'
 
 const initialState = {
     allPosts: [],
+    updatedPosts: [],
     favouritePosts: [],
     myPosts: [],
     loading: false,
@@ -21,24 +22,41 @@ const reducer = (state = initialState, action) => {
 
         case actionTypes.FETCH_POSTS_SUCCESS:
             return {
-                ...state,   
+                ...state,
                 allPosts: action.posts,
                 loading: action.loading,
 
             }
         case actionTypes.FETCH_POSTS_FAIL:
             return {
-                ...state,   
+                ...state,
                 error: action.error,
                 loading: action.loading,
 
             }
-            
-         
-    
+
+        case actionTypes.FAVOURITE_POSTS:
+            const updatedPosts = state.allPosts.map(post => {
+                if (parseInt(action.postId) === parseInt(post.id)) {
+                    return {
+                        ...post,
+                        fav: !action.favourite
+                    }
+                }
+                return post;
+            })
+            const favouritePosts = updatedPosts.filter(post => post.fav)
+            localStorage.setItem('savedFavPosts', JSON.stringify(favouritePosts))
+            return {
+                ...state,
+                allPosts: updatedPosts
+            }
+
+
+
         default:
             return state
-     
+
     }
 
 }

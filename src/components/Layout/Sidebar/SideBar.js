@@ -6,6 +6,7 @@ import heart from '../../../assets/images/heart.svg'
 import myArticles from '../../../assets/images/myArticles.svg'
 import discover from '../../../assets/images/discover.svg'
 import dashboard from '../../../assets/images/dashboard.svg'
+import logout from '../../../assets/images/logout.svg'
 import { Link } from 'react-router-dom'
 
 
@@ -60,7 +61,7 @@ const SideBar = (props) => {
 
                     <Link className={classes.navLink} to='/dashboard'>
                         <div className={classes.iconBox}>
-                            <img src={dashboard} />
+                            <img src={logout} />
                             <p>Logout</p>
                         </div>
                     </Link>

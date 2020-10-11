@@ -180,7 +180,7 @@ class NewPost extends React.Component {
                     <form className={classes.formInput} onSubmit={this.onSubmitForm}>
                         {newPost}
                         <div className = {classes.btnContainer}>
-                                  <Button disabled={!this.state.formIsValid} clicked={this.onSubmitForm}>Save Post</Button>
+                                  <Button  disabled={!this.state.formIsValid} clicked={this.onSubmitForm}>Save Post</Button>
                         </div>
                   
                     </form>

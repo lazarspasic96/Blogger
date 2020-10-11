@@ -30,6 +30,7 @@ export const onFetchPosts = () => {
             .then(res => {
                 const results = res.data.map(post => new Post(post))
                 dispatch(fetchPostSuccess(results))
+          
             })
             .catch(err => {
                 dispatch(fetchPostsFail(err))
@@ -65,14 +66,67 @@ export const newPost = (postData) => {
         dispatch(newPostStart())
 
         axios.post('posts', postData)
-        
-        .then(res => {
-            console.log(res.data)
-            dispatch(newPostSucces())
-        
-        })
-        .catch(error => {
-            dispatch(newPostFail(error))
-        })
+
+            .then(res => {
+                console.log(res.data)
+                dispatch(newPostSucces())
+
+            })
+            .catch(error => {
+                dispatch(newPostFail(error))
+            })
     }
 }
+
+
+export const favouritePost = (postId, favourite) => {
+
+
+    return {
+        type: actionTypes.FAVOURITE_POSTS,
+        postId: postId,
+        favourite: favourite
+    }
+}
+
+
+export const fetchMyPosts = (myPosts) => {
+    return {
+        type: actionTypes.FETCH_MYPOSTS_SUCCESS,
+        myPosts: myPosts
+    }
+}
+
+export const fetchMyPostsStart = () => {
+    return {
+        type: actionTypes.FETCH_MYPOSTS_START,
+        loading: true
+    }
+}
+export const fetchMyPostsFail = (error) => {
+    return {
+        type: actionTypes.FETCH_MYPOSTS_FAIL,
+        loading: false,
+        error
+    }
+}
+
+export const getMyPost = () => {
+    return dispatch => {
+        const id = localStorage.getItem('userId')
+        if(id) {
+            axios.get(`users/${id}/posts`)
+            .then(res => {
+                dispatch(fetchMyPostsStart())
+               dispatch(fetchMyPosts(res.data))
+            })
+
+            .catch(error => {
+                dispatch(fetchMyPostsFail(error))
+                console.log(error)
+            })
+        }
+    }
+}
+
+

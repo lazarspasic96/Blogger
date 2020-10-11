@@ -1,6 +1,7 @@
 export  {
     onFetchPosts,
-    newPost
+    newPost,
+    favouritePost
 }  from './actionCreators/posts'
 
 
