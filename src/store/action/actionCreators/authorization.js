@@ -1,8 +1,7 @@
 
 import * as actionTypes from '../actionTypes'
 import axios from '../../../services/axios'
-import React from 'react'
-import {Redirect} from 'react-router-dom'
+
 
 export const loginStart = () => {
     return {
@@ -35,8 +34,11 @@ export const login = (email, password) => {
         axios.post('auth/login', loginData)
             .then(res => {
                 console.log(res)
+                const expirationDate = new Date (new Date().getTime() + 3600 * 1000 )
                 localStorage.setItem('token', res.data.accessToken)
+                localStorage.setItem('expirationDate', expirationDate )
                 dispatch(userList(loginData))
+                dispatch(checkAuthTimeout())
                 dispatch(loginSucces(res.data.accessToken))
             })
             .catch(error => {
@@ -74,7 +76,11 @@ export const signUp = (signUpData) => {
         dispatch(signUpStart())
         axios.post('auth/register', signUpData)
             .then(res => {
+                const expirationDate = new Date (new Date().getTime() + 3600 * 1000 )
+                localStorage.setItem('expirationDate', expirationDate )
                 localStorage.setItem('token', res.data.accessToken)
+                dispatch(checkAuthTimeout())
+                dispatch(userList(signUpData))
                 dispatch(signUpSuccess(res.data.accessToken))
            
 
@@ -85,6 +91,51 @@ export const signUp = (signUpData) => {
             })
     }
 }
+
+export const logout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    localStorage.removeItem('expirationDate')
+
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    }
+}
+
+export const checkAuthTimeout = () => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(logout())
+        }, 3600 * 1000); //Logout user after 60 minutes.
+    }
+
+}
+
+export const checkAuth = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token')
+        const userId = localStorage.getItem('userId')
+        if(!token) {
+            dispatch(logout())
+        }
+
+        else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'))
+
+            if(expirationDate > new Date()) {
+                dispatch(loginSucces(token))
+            }
+
+            else {
+                dispatch(logout())
+            }
+        }
+    }
+}
+
+
+
+
 
 export const userList = (userData) => {
     return dispatch => {

@@ -20,3 +20,13 @@
         border-bottom: .2rem solid #7158e2;
     }
 }
+
+.invalid {
+    border: 1px solid red;
+    background-color: #FDA49A;
+}
+
+.error {
+    color: red;
+    margin: 5px 0;
+} 

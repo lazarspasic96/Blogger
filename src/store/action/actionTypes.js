@@ -17,3 +17,7 @@ export const NEW_POST_START = 'NEW_POST_START'
 export const NEW_POST_FAIL = 'NEW_POST_FAIL'
 
 export const FETCH_MYPOSTS_SUCCESS = 'FETCH_MYPOSTS_SUCCESS'
+
+
+
+export const AUTH_LOGOUT = 'AUTH_LOGOUT'

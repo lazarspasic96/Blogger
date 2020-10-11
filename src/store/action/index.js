@@ -6,5 +6,7 @@ export  {
 
 export {
     login,
-    signUp
+    signUp,
+    logout,
+    checkAuth
 } from './actionCreators/authorization'

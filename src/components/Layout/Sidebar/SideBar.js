@@ -57,15 +57,14 @@ const SideBar = (props) => {
                             <p>Dashboard</p>
                         </div>
                     </Link>
-                {/*     <Button className={classes.logoutBtn}>
-                        Logout
-                    </Button> */}
 
-                {/*     <div className={classes.logoutBox}>
+                    <Link className={classes.navLink} to='/dashboard'>
+                        <div className={classes.iconBox}>
                             <img src={dashboard} />
                             <p>Logout</p>
-                        </div> */}
-
+                        </div>
+                    </Link>
+    
                 </div>
 
 

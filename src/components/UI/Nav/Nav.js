@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './NavBar.module.scss'
 import { Link, NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
-import {withRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class NavBar extends React.Component {
     state = {
@@ -17,8 +17,28 @@ class NavBar extends React.Component {
     }
 
 
+
     render() {
-console.log(this.props.history.location.pathname)
+
+        let routes = (<>
+            <li className={classes.item}>  <Link onClick = {this.toogleNavBar} className={classes.navLink} to='/authorization'>Log In </Link></li>
+            <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/posts'>Articles </Link></li>
+            <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/our-story'>Our Story </Link></li>
+            <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/get-started'> Get Stared </Link></li>
+        </>)
+
+        if (this.props.isAuth) {
+            routes = (
+                <>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/new-post'>New Post </Link></li>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/posts'>My Posts </Link></li>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/favourite'>Favourite Posts </Link></li>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/discover'>Discover</Link></li>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/logout'> Logout</Link></li>
+
+                </>
+            )
+        }
 
 
         return (
@@ -26,10 +46,10 @@ console.log(this.props.history.location.pathname)
 
                 <div className={classes.navBar}>
                     <Button clicked={this.toogleNavBar} className={classes.navBtn}>
-                  <div className = {this.state.toogleClass ? classes.rotate : classes.default}></div>
-                  <div className = {this.state.toogleClass ? classes.rotate : classes.default}></div>
-                  <div className = {this.state.toogleClass ? classes.rotate : classes.default}></div>
-                   
+                        <div className={this.state.toogleClass ? classes.rotate : classes.default}></div>
+                        <div className={this.state.toogleClass ? classes.rotate : classes.default}></div>
+                        <div className={this.state.toogleClass ? classes.rotate : classes.default}></div>
+
                     </Button>
 
                     <div className={classes.btnBox} style={this.state.toogleClass ? { transform: 'scale(80)' } : null}>
@@ -37,10 +57,8 @@ console.log(this.props.history.location.pathname)
                     </div>
 
                     <nav className={classes.navigation} style={!this.state.toogleClass ? { display: 'none' } : null}>
-                        <ul className={classes.navigationList}>
-                            <li className={classes.item}> <Link className={classes.navLink} to='/articles'>Articles </Link></li>
-                            <li className={classes.item}> <Link className={classes.navLink} to='/our-story'>Our Story </Link></li>
-                            <li className={classes.item}> <Link className={classes.navLink} to='/get-started'> Get Stared </Link></li>
+                        <ul className={classes.navigationList} >
+                            {routes}
                         </ul>
                     </nav>
 
@@ -53,6 +71,11 @@ console.log(this.props.history.location.pathname)
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.token
+    }
+}
 
-export default withRouter(NavBar)
+export default connect(mapStateToProps, null)(NavBar)
 

@@ -6,9 +6,9 @@ import classes from './Input.module.scss';
 const Input = (props) => {
     const inputClasses = [classes.Input, props.className];
 
-
+console.log(props.isValid)
     if (props.isValid && props.touched) {
-        inputClasses.push(classes.Invalid)
+        inputClasses.push(classes.invalid)
     }
 
 
@@ -61,7 +61,7 @@ const Input = (props) => {
         <div className={classes.inputBox}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
-            <span className={classes.Error}>{vadlidationError}</span>
+            <span className={classes.error}>{vadlidationError}</span>
         </div>
     );
 

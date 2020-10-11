@@ -41,7 +41,9 @@ class LogIn extends React.Component {
 
                 }
             },
-            isAuth: null
+            isAuth: null,
+            valid: false,
+            touched: false
         }
 
     }
@@ -52,12 +54,35 @@ class LogIn extends React.Component {
                 ...this.state.auth[inputIdentifier],
                 touched: true,
                 value: event.target.value,
+                valid: this.chechkValidity(inputIdentifier, event.target.value)
 
 
             }
         }
         this.setState({ auth: updatedAuth })
     }
+
+    chechkValidity = (inputIdentifier, value) => {
+      
+        let isValid = true
+
+        const emailCheck = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+        if(inputIdentifier === 'email') {
+            isValid = emailCheck.test(value) && isValid
+        }
+
+        if(inputIdentifier === 'password') {
+            isValid = value.length >= 6 && isValid
+        }
+
+        return isValid
+
+
+
+    }
+    
+
 
     loginHandler = (event) => {
         event.preventDefault()
@@ -83,6 +108,7 @@ class LogIn extends React.Component {
                 elementType={formElement.config.elementType}
                 elementConfig={formElement.config.elementConfig}
                 touched={formElement.config.touched}
+                isValid = {!formElement.config.valid}
                 value={formElement.config.value}
                 valueType={formElement.id}
 

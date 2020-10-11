@@ -1,8 +1,9 @@
 import React from 'react'
 import DashBoard from './DashBoard/DashBoard'
-import {Route, Switch} from 'react-router-dom'
+import {Redirect, Route, Switch} from 'react-router-dom'
 import NewPost from './DashBoard/NewPost/NewPost'
 import Authorization from './Authorization/Authorization';
+import Logout from './Authorization/Logout/Logout';
 
 class PrivateMain extends React.Component {
 
@@ -19,6 +20,8 @@ class PrivateMain extends React.Component {
                    <Switch>
                        <Route path = '/new-post' component = {NewPost} />
                        <Route exact path='/authorization' component={Authorization} />
+                       <Route exact path='/logout' component={Logout} />
+                       <Redirect to = '/' />
                    </Switch>
                   </DashBoard>
                
