@@ -1,4 +1,4 @@
-<b> Please note that I am currently working on this application and project will be live soon.
+<b> Please note that I am currently working on this application and project will be live soon. </b>
 
 
 CRUD React application where you can log in/sign up and post, delete, edit, and update posts. 
