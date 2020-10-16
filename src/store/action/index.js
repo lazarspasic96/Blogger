@@ -1,7 +1,9 @@
 export  {
     onFetchPosts,
     newPost,
-    favouritePost
+    favouritePost,
+    getMyPost,
+    editPost
 }  from './actionCreators/posts'
 
 

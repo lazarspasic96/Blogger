@@ -5,6 +5,8 @@ import NewPost from './DashBoard/NewPost/NewPost'
 import Authorization from './Authorization/Authorization';
 import Logout from './Authorization/Logout/Logout';
 import Posts from './Posts/Posts'
+import MyPosts from './DashBoard/MyPosts/MyPosts';
+import EditPost from './DashBoard/EditPost/EditPost';
 
 class PrivateMain extends React.Component {
 
@@ -23,6 +25,8 @@ class PrivateMain extends React.Component {
                        <Route exact path='/authorization' component={Authorization} />
                        <Route exact path='/logout' component={Logout} />
                        <Route exact path='/posts' component={Posts} />
+                       <Route exact path='/my-posts' component={MyPosts} />
+                       <Route exact path='/edit-post/:id' component={EditPost} />
                        <Redirect to = '/' />
                    </Switch>
                   </DashBoard>

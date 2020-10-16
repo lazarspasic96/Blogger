@@ -93,7 +93,7 @@ export const favouritePost = (postId, favourite) => {
 export const fetchMyPosts = (myPosts) => {
     return {
         type: actionTypes.FETCH_MYPOSTS_SUCCESS,
-        myPosts: myPosts
+        myPosts
     }
 }
 
@@ -118,7 +118,7 @@ export const getMyPost = () => {
             axios.get(`users/${id}/posts`)
             .then(res => {
                 dispatch(fetchMyPostsStart())
-               dispatch(fetchMyPosts(res.data))
+               dispatch(fetchMyPosts(res.data.map(post => new Post (post))))
             })
 
             .catch(error => {
@@ -127,6 +127,17 @@ export const getMyPost = () => {
             })
         }
     }
+}
+
+
+export const editPost = (id, data) => {
+    return dispatch => {
+        axios.put(`posts/${id}`, data)
+        .then(res => 
+            console.log(res))
+            .catch(err => console.log(err.response))
+    }
+
 }
 
 

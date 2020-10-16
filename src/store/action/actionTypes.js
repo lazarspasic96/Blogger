@@ -22,4 +22,10 @@ export const FETCH_MYPOSTS_FAIL = 'FETCH_MYPOSTS_FAIL'
 
 
 
+export const FETCH_SINGLE_POST = 'FETCH_SINGLE_POST'
+
+
+
+
+
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'

@@ -1,0 +1,38 @@
+.postItem {
+  width: 50rem;
+  height: 4rem;
+  background: #ffffff;
+  box-shadow: 0rem 2rem 10rem rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &:hover {
+    border: 0.1rem solid #7713f8;
+    box-shadow: 0rem 1rem 5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .title {
+    width: 90%;
+    padding: 1rem;
+
+    p {
+      font-size: 1.2rem;
+      color: #414b56;
+    }
+  }
+
+  .editPost {
+    width: 10%;
+    padding: 1rem;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
