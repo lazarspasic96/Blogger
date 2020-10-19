@@ -3,3 +3,8 @@
   outline: none;
   cursor: pointer;
 }
+
+.disabled {
+  color: #fff !important;
+  background-color: #d1d2d3 !important;
+}

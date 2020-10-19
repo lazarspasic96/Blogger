@@ -32,20 +32,13 @@ const SideBar = (props) => {
                         </div>
                     </Link>
 
-                    <Link className={classes.navLink} to='/my-articles' >
+                    <Link className={classes.navLink} to='/my-posts' >
                         <div className={classes.iconBox}>
                             <img src={myArticles} />
                             <p>My Articles</p>
                         </div>
                     </Link>
-                    <Link className={classes.navLink} to='/favourite'>
-                        <div className={classes.iconBox}>
-                            <img src={heart} />
-                            <p>Favourite</p>
-
-                        </div>
-                    </Link>
-                    <Link className={classes.navLink} to='/discover'>
+                    <Link className={classes.navLink} to='/posts'>
                         <div className={classes.iconBox}>
                             <img src={discover} />
                             <p>Discover</p>
@@ -59,7 +52,7 @@ const SideBar = (props) => {
                         </div>
                     </Link>
 
-                    <Link className={classes.navLink} to='/dashboard'>
+                    <Link className={classes.navLink} to='/logout'>
                         <div className={classes.iconBox}>
                             <img src={logout} />
                             <p>Logout</p>

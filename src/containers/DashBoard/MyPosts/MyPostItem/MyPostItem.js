@@ -9,17 +9,20 @@ class MyPostItem extends React.Component {
         console.log(this.props.postData)
         return (
             <>
+                <div className = {classes.myposts}>
 
-                <article className={classes.postItem}>
-                    <div className={classes.title}>
-                        <p>{this.props.postData.title}</p>
-                    </div>
-                    <Link to={`/edit-post/${this.props.postData.id}`}>
-                        <div className={classes.editPost}>
-                            <img src={edit} />
+
+                    <article className={classes.postItem}>
+                        <div className={classes.title}>
+                            <p>{this.props.postData.title}</p>
                         </div>
-                    </Link>
-                </article>
+                        <Link to={`/edit-post/${this.props.postData.id}`}>
+                            <div className={classes.editPost}>
+                                <img src={edit} />
+                            </div>
+                        </Link>
+                    </article>
+                </div>
 
             </>
         )

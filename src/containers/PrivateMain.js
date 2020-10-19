@@ -7,6 +7,7 @@ import Logout from './Authorization/Logout/Logout';
 import Posts from './Posts/Posts'
 import MyPosts from './DashBoard/MyPosts/MyPosts';
 import EditPost from './DashBoard/EditPost/EditPost';
+import ReadPost from './ReadPost/ReadPost';
 
 class PrivateMain extends React.Component {
 
@@ -27,6 +28,7 @@ class PrivateMain extends React.Component {
                        <Route exact path='/posts' component={Posts} />
                        <Route exact path='/my-posts' component={MyPosts} />
                        <Route exact path='/edit-post/:id' component={EditPost} />
+                       <Route exact path='/post/:id' component={ReadPost} />
                        <Redirect to = '/' />
                    </Switch>
                   </DashBoard>

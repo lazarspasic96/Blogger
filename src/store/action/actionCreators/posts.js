@@ -30,7 +30,7 @@ export const onFetchPosts = () => {
             .then(res => {
                 const results = res.data.map(post => new Post(post))
                 dispatch(fetchPostSuccess(results))
-          
+
             })
             .catch(err => {
                 dispatch(fetchPostsFail(err))
@@ -114,17 +114,17 @@ export const fetchMyPostsFail = (error) => {
 export const getMyPost = () => {
     return dispatch => {
         const id = localStorage.getItem('userId')
-        if(id) {
+        if (id) {
             axios.get(`users/${id}/posts`)
-            .then(res => {
-                dispatch(fetchMyPostsStart())
-               dispatch(fetchMyPosts(res.data.map(post => new Post (post))))
-            })
+                .then(res => {
+                    dispatch(fetchMyPostsStart())
+                    dispatch(fetchMyPosts(res.data.map(post => new Post(post))))
+                })
 
-            .catch(error => {
-                dispatch(fetchMyPostsFail(error))
-                console.log(error)
-            })
+                .catch(error => {
+                    dispatch(fetchMyPostsFail(error))
+                    console.log(error)
+                })
         }
     }
 }
@@ -133,11 +133,61 @@ export const getMyPost = () => {
 export const editPost = (id, data) => {
     return dispatch => {
         axios.put(`posts/${id}`, data)
-        .then(res => 
-            console.log(res))
+            .then(res =>
+                console.log(res))
             .catch(err => console.log(err.response))
     }
 
 }
 
+export const deletePost = (id, data) => {
+    return dispatch => {
+        axios.delete(`posts/${id}`, data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response))
+    }
+
+}
+
+
+
+export const getSinglePostStart = () => {
+    return {
+        type: actionTypes.FETCH_SINGLE_POST_START,
+        loading: true
+    }
+
+}
+export const getSinglePostFail = (error) => {
+    return {
+        type: actionTypes.FETCH_SINGLE_POST_FAIL,
+        loading: false,
+        error: error
+    }
+
+}
+export const getSinglePostSuccess = (post) => {
+    return {
+        type: actionTypes.FETCH_SINGLE_POST_SUCCESS,
+        post: post,
+        loading: false
+    }
+
+}
+
+export const readPost = (id) => {
+    return dispatch => {
+        dispatch(getSinglePostStart())
+        axios(`posts/${id}`)
+
+            .then(res => {
+                console.log(res.data)
+                dispatch(getSinglePostSuccess(res.data))
+            })
+
+            .catch(err => {
+                dispatch(getSinglePostFail(err.response))
+            })
+    }
+}
 

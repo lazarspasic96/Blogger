@@ -54,28 +54,23 @@ const reducer = (state = initialState, action) => {
                 error: action.error
             }
 
-        case actionTypes.FETCH_SINGLE_POST:
+        case actionTypes.FETCH_SINGLE_POST_SUCCESS:
             return {
                 ...state,
-                singlePost: action.postData
+                loading: action.loading,
+                singlePost: action.post,
             }
 
-        case actionTypes.FAVOURITE_POSTS:
-            const updatedPosts = state.allPosts.map(post => {
-                if (parseInt(action.postId) === parseInt(post.id)) {
-                    return {
-                        ...post,
-                        fav: !action.favourite
-                    }
-                }
-                return post;
-            })
-            const favouritePosts = updatedPosts.filter(post => post.fav)
-            localStorage.setItem('savedFavPosts', JSON.stringify(favouritePosts))
+        case actionTypes.FETCH_SINGLE_POST_FAIL:
             return {
                 ...state,
-                allPosts: updatedPosts
+                loading: false,
+                error: action.error
             }
+
+  
+
+  
 
 
 

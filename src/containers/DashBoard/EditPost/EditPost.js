@@ -5,10 +5,11 @@ import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components/UI/Button/Button'
 import { connect } from 'react-redux'
 import * as action from '../../../store/action/index'
+import Modal from '../../../components/UI/Modal/Modal'
 
 class EditPost extends React.Component {
     constructor(props) {
-        super(props)
+        super()
         this.state = {
             editPostForm: {
                 title: {
@@ -69,7 +70,8 @@ class EditPost extends React.Component {
 
             },
             isPublic: true,
-            formIsValid: false
+            formIsValid: false,
+            showModal: false,
         }
     }
 
@@ -138,28 +140,38 @@ class EditPost extends React.Component {
             const updatedEditPostForm = {
                 ...this.state.editPostForm,
                 title: {
-                    value: results.title
+                    ...this.state.editPostForm['title'],
+                    value: results.title,
+                    valid: this.checkValidity('title', results.title)
                 },
     
                 subTitle: {
-                    value: results.subtitle
+                    ...this.state.editPostForm['subTitle'],
+                    value: results.subtitle,
+                    valid: this.checkValidity('subTitle', results.subtitle)
                 },
     
                 image: {
                     ...this.state.editPostForm['image'],
-                    value: results.imageUrl
+                    value: results.imageUrl,
+                    valid: this.checkValidity('image', results.imageUrl)
                 },
     
                text: {
                    ...this.state.editPostForm['text'],
-                    value: results.text
+                    value: results.text,
+                    valid: this.checkValidity('text', results.text)
             } 
     
             }
 
+     
+
+       
             this.setState({
                 editPostForm: updatedEditPostForm,
-                sid: results.sid
+                sid: results.sid,
+         
             })
     
         })   
@@ -178,11 +190,48 @@ class EditPost extends React.Component {
           
 
         }
-        this.props.editPost(id, data)
+
+        this.setState({
+            showModal: true
+        })
+    
+       
+        setTimeout(() => {
+            this.setState({
+                showModal: true
+            })
+              this.props.editPost(id, data)
+              this.props.history.push('/my-posts')
+        
+        }, 1000);
+
+      
+
+        
+    }
+
+
+    deletePostHandler = () => {
+        let id = this.props.match.params.id
+
+        const data = {
+            title: this.state.editPostForm.title.value,
+            subtitle: this.state.editPostForm.subTitle.value,
+            imageUrl: this.state.editPostForm.image.value,
+            text: this.state.editPostForm.text.value,
+            sid: this.state.sid
+          
+
+        }
+
+        this.props.deletePost(id, data)
+
     }
 
 
     render() {
+
+    
 
         const updatedForm = []
         for (let key in this.state.editPostForm) {
@@ -209,15 +258,16 @@ class EditPost extends React.Component {
 
         return (
             <>
-
+          {this.state.showModal ? <Modal show = {true}><p>The post is succefully updated!</p></Modal> : null}
                 <div className={classes.editPostForm}>
+          
                     <h1 className={classes.header}>Edit your post</h1>
                     {/*      <Switcher oN={'Public'} oF={'Private'} clicked={this.isPublic} />  */}
                     <form className={classes.formInput} onSubmit={this.onSubmitForm}>
                         {editPost}
                         <div className={classes.btnContainer}>
-                            <Button disabled={this.state.formIsValid} clicked={this.updatePostHandler}>Update Post</Button>
-                            <Button disabled={!this.state.formIsValid} clicked={this.onSubmitForm}>Delte Post</Button>
+                            <Button className = {classes.active} disabled={!this.state.formIsValid} clicked={this.updatePostHandler}>Update Post</Button>
+                            <Button className = {classes.active}  clicked={this.deletePostHandler}>Delte Post</Button>
                         </div>
 
                     </form>
@@ -235,7 +285,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        editPost: (id, data) => dispatch(action.editPost(id, data))
+        editPost: (id, data) => dispatch(action.editPost(id, data)),
+        deletePost: (id, data) => dispatch(action.deletePost(id, data))
     }
 }
 

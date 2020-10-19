@@ -3,7 +3,9 @@ export  {
     newPost,
     favouritePost,
     getMyPost,
-    editPost
+    editPost,
+    deletePost,
+    readPost
 }  from './actionCreators/posts'
 
 

@@ -2,40 +2,21 @@
 import React from 'react'
 import classes from './Card.module.scss'
 import cardImg from '../../../assets/images/articleImg.jpg'
-import like from '../../../assets/images/like.svg'
 import user from '../../../assets/images/user.svg'
 import * as action from '../../../store/action/index'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 
 
 class Card extends React.Component {
-    constructor(props) {
-        super()
-        this.state = {
-            favCassName: ''
-        }
-    }
-
-
-
 
 
     render() {
 
 
-    let favCassName = null
-        const favouritePosts = JSON.parse(localStorage.getItem("savedFavPosts"))
-        if(favouritePosts) {
-              favouritePosts.forEach(post => {
-            if(post.id === this.props.postData.id) {
-                favCassName = classes.favourite
-            }
-        });
-        }
-      
- 
+
 
 
         let photo = cardImg
@@ -55,7 +36,9 @@ class Card extends React.Component {
                         <p> {
                             this.props.postData.subTitle}
                         </p>
-                        <span className={classes.readMore}>Read more</span>
+                        <Link to = {`/post/${this.props.postData.id}`}>
+                        <span className={classes.readMore}>Read more</span> 
+                        </Link>
                     </div>
 
                     <div className={classes.profileImgBox}>
@@ -64,9 +47,7 @@ class Card extends React.Component {
                     </div>
 
 
-                    <div className={classes.likeBox} onClick={() => this.props.onFavourite(this.props.postData.id, this.props.postData.fav)}>
-                        <img className={''} src={like} />
-                    </div>
+
 
                 </div>
 
@@ -85,13 +66,8 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onFavourite: (postId, favourite) => (dispatch(action.favouritePost(postId, favourite))),
-
-    }
-}
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card)
+
+export default connect(mapStateToProps, null)(Card)
