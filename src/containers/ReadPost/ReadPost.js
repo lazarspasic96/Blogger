@@ -2,6 +2,7 @@ import classes from './ReadPost.module.scss'
 import React from 'react'
 import { connect } from 'react-redux'
 import * as action from '../../store/action/index'
+import NavBar from '../../components/UI/Nav/Nav'
 
 
 class ReadPost extends React.Component {
@@ -19,6 +20,7 @@ class ReadPost extends React.Component {
 
         return <>
             <article className={classes.readPost}>
+            <NavBar />
 
                 <h1>{this.props.postData.title}</h1>
                 <h3>{this.props.postData.subtitle}</h3>

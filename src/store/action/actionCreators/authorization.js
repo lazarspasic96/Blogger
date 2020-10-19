@@ -33,7 +33,7 @@ export const login = (email, password) => {
 
         axios.post('auth/login', loginData)
             .then(res => {
-                console.log(res)
+      
                 const expirationDate = new Date (new Date().getTime() + 3600 * 1000 )
                 localStorage.setItem('token', res.data.accessToken)
                 localStorage.setItem('expirationDate', expirationDate )
@@ -42,7 +42,7 @@ export const login = (email, password) => {
                 dispatch(loginSucces(res.data.accessToken))
             })
             .catch(error => {
-                console.log('eeee', error.response.data.message)
+ 
                 dispatch(loginFail(error.response.data.message))
             })
     }
@@ -72,7 +72,7 @@ export const signUpSuccess = (token) => {
 
 export const signUp = (signUpData) => {
     return dispatch => {
-        console.log(signUpData)
+
         dispatch(signUpStart())
         axios.post('auth/register', signUpData)
             .then(res => {
@@ -142,7 +142,7 @@ export const userList = (userData) => {
         axios.get('users')
             .then(res => {
                 let userId = res.data.filter(user => userData.email === user.email)[0]
-                console.log(userId)
+           
                 if (userId) {
                     localStorage.setItem('userId', userId.id)
                 }

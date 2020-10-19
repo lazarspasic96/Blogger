@@ -178,7 +178,7 @@ class EditPost extends React.Component {
     }
 
     updatePostHandler = () => {
-        console.log('usoo ovde')
+ 
         let id = this.props.match.params.id
 
         const data = {

@@ -123,7 +123,7 @@ export const getMyPost = () => {
 
                 .catch(error => {
                     dispatch(fetchMyPostsFail(error))
-                    console.log(error)
+                 
                 })
         }
     }
@@ -181,7 +181,7 @@ export const readPost = (id) => {
         axios(`posts/${id}`)
 
             .then(res => {
-                console.log(res.data)
+      
                 dispatch(getSinglePostSuccess(res.data))
             })
 
