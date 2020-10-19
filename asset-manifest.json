@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Blogger/static/css/main.795baefa.chunk.css",
-    "main.js": "/Blogger/static/js/main.680ce2d7.chunk.js",
-    "main.js.map": "/Blogger/static/js/main.680ce2d7.chunk.js.map",
+    "main.css": "/Blogger/static/css/main.a01414e4.chunk.css",
+    "main.js": "/Blogger/static/js/main.9c161f8b.chunk.js",
+    "main.js.map": "/Blogger/static/js/main.9c161f8b.chunk.js.map",
     "runtime-main.js": "/Blogger/static/js/runtime-main.98a8b26f.js",
     "runtime-main.js.map": "/Blogger/static/js/runtime-main.98a8b26f.js.map",
     "static/js/2.b46babb7.chunk.js": "/Blogger/static/js/2.b46babb7.chunk.js",
     "static/js/2.b46babb7.chunk.js.map": "/Blogger/static/js/2.b46babb7.chunk.js.map",
     "index.html": "/Blogger/index.html",
-    "precache-manifest.d0fcd9e23e34aaa413fb358302538a35.js": "/Blogger/precache-manifest.d0fcd9e23e34aaa413fb358302538a35.js",
+    "precache-manifest.8c2d6ffabd23e05cb485cfb8f0cb7505.js": "/Blogger/precache-manifest.8c2d6ffabd23e05cb485cfb8f0cb7505.js",
     "service-worker.js": "/Blogger/service-worker.js",
-    "static/css/main.795baefa.chunk.css.map": "/Blogger/static/css/main.795baefa.chunk.css.map",
+    "static/css/main.a01414e4.chunk.css.map": "/Blogger/static/css/main.a01414e4.chunk.css.map",
     "static/js/2.b46babb7.chunk.js.LICENSE.txt": "/Blogger/static/js/2.b46babb7.chunk.js.LICENSE.txt",
     "static/media/addPost.svg": "/Blogger/static/media/addPost.6b7af617.svg",
     "static/media/articleImg.jpg": "/Blogger/static/media/articleImg.8266fe12.jpg",
@@ -28,7 +28,7 @@
   "entrypoints": [
     "static/js/runtime-main.98a8b26f.js",
     "static/js/2.b46babb7.chunk.js",
-    "static/css/main.795baefa.chunk.css",
-    "static/js/main.680ce2d7.chunk.js"
+    "static/css/main.a01414e4.chunk.css",
+    "static/js/main.9c161f8b.chunk.js"
   ]
 }
