@@ -1,6 +1,6 @@
 import classes from './ReadPost.module.scss'
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import * as action from '../../store/action/index'
 
 
@@ -18,9 +18,13 @@ class ReadPost extends React.Component {
     render() {
 
         return <>
-    <article className = {classes.readPost}>
+            <article className={classes.readPost}>
 
-    </article>
+                <h1>{this.props.postData.title}</h1>
+                <h3>{this.props.postData.subtitle}</h3>
+                <p>{this.props.postData.text}</p>
+
+            </article>
 
 
         </>
@@ -29,7 +33,7 @@ class ReadPost extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        state: state.post.singlePost
+        postData: state.post.singlePost
     }
 }
 
@@ -37,7 +41,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onReadPost: (id) => dispatch(action.readPost(id))
     }
-    
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReadPost)
