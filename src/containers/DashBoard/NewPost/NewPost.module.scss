@@ -6,14 +6,14 @@
   align-items: center;
   .formInput {
     width: 100%;
-    input{
+    input {
       width: 100%;
       padding: 2rem;
     }
 
     textarea {
-        width: 100%;
-        height: 20rem;
+      width: 100%;
+      height: 20rem;
     }
 
     .btnContainer {
@@ -28,16 +28,16 @@
         outline: none;
         color: #ffff;
         height: 3rem;
-        transition: all .2s;
-        
+        transition: all 0.2s;
+
         &:hover {
-          box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-          transform: translateY(-.2rem);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          transform: translateY(-0.2rem);
         }
 
         &:active {
-          transform: translateY(-.1rem);
-          box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+          transform: translateY(-0.1rem);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
         }
       }
     }
@@ -47,8 +47,30 @@
 .header {
   text-align: center;
   font-size: 1.9rem;
-  color:  #414b56;
+  color: #414b56;
   padding-bottom: 1.5rem;
   text-transform: uppercase;
   margin-top: 2rem;
+}
+
+@media (max-width: 566px) {
+
+  .newPostForm {
+    width: 100%
+  }
+  .formInput {
+    input {
+      width: 100% !important;
+    }
+
+    textarea {
+      width: 100% !important;
+    }
+
+    .btnContainer {
+      button {
+        width: 100% !important;
+      }
+    }
+  }
 }

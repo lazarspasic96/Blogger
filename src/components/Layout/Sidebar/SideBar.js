@@ -45,12 +45,12 @@ const SideBar = (props) => {
                         </div>
                     </Link>
 
-                    <Link className={classes.navLink} to='/dashboard'>
+                {/*     <Link className={classes.navLink} to='/dashboard'>
                         <div className={classes.iconBox}>
                             <img src={dashboard} />
                             <p>Dashboard</p>
                         </div>
-                    </Link>
+                    </Link> */}
 
                     <Link className={classes.navLink} to='/logout'>
                         <div className={classes.iconBox}>

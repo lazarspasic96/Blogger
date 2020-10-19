@@ -1,6 +1,6 @@
 import React from 'react'
 import DashBoard from './DashBoard/DashBoard'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import NewPost from './DashBoard/NewPost/NewPost'
 import Authorization from './Authorization/Authorization';
 import Logout from './Authorization/Logout/Logout';
@@ -14,31 +14,31 @@ class PrivateMain extends React.Component {
 
     render() {
         return <>
-        
-        
-              
-                <Route  path='/'>
-
-          
-                    <DashBoard>
-                   <Switch>
-                       <Route path = '/new-post' component = {NewPost} />
-                       <Route exact path='/authorization' component={Authorization} />
-                       <Route exact path='/logout' component={Logout} />
-                       <Route exact path='/posts' component={Posts} />
-                       <Route exact path='/my-posts' component={MyPosts} />
-                       <Route exact path='/edit-post/:id' component={EditPost} />
-                       <Route exact path='/post/:id' component={ReadPost} />
-                       <Redirect to = '/' />
-                   </Switch>
-                  </DashBoard>
-               
-                  
 
 
-                </Route>
-          
-        
+
+
+
+
+            <DashBoard>
+
+                <Switch>
+                    <Route exact path='/new-post' component={NewPost} />
+                    <Route path='/authorization' component={Authorization} />
+                    <Route path='/logout' component={Logout} />
+                    <Route path='/posts' component={Posts} />
+                    <Route path='/my-posts' component={MyPosts} />
+                    <Route path='/edit-post/:id' component={EditPost} />
+                    <Route path='/post/:id' component={ReadPost} />
+                    <Redirect to='/' />
+                </Switch>
+            </DashBoard>
+
+
+
+
+
+
 
         </>
     }

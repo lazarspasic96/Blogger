@@ -31,9 +31,8 @@ class NavBar extends React.Component {
             routes = (
                 <>
                     <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/new-post'>New Post </Link></li>
-                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/posts'>My Posts </Link></li>
-                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/favourite'>Favourite Posts </Link></li>
-                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/discover'>Discover</Link></li>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/my-posts'>My Posts </Link></li>
+                    <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/posts'>Discover</Link></li>
                     <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/logout'> Logout</Link></li>
 
                 </>

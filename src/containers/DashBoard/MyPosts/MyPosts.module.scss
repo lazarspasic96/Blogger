@@ -1,0 +1,17 @@
+.noPosts {
+  margin-top: 16rem;
+  font-size: 2.5rem;
+  color: #414b56;
+  span {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    color: #7510F7;
+    cursor: pointer;
+    transition: all .1s;
+    &:hover {
+        transform: scale(1.1);
+    }
+
+  }
+}

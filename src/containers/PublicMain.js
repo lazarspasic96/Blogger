@@ -5,6 +5,7 @@ import Footer from '../components/Layout/Footer/Footer'
 import Authorization from './Authorization/Authorization';
 import Posts from './Posts/Posts';
 import ReadPost from './ReadPost/ReadPost';
+import GetStarted from '../components/Layout/GetStarted/GetStarted';
 
 
 class PublicMain extends React.Component {

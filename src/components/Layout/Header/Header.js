@@ -2,8 +2,9 @@
 import React from 'react'
 import classes from './Header.module.css'
 import Button from '../../UI/Button/Button'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-scroll'
 import NavBar from '../../UI/Nav/Nav'
+import GetStarted from '../GetStarted/GetStarted'
 
 const Header = (props) => {
 
@@ -12,12 +13,16 @@ const Header = (props) => {
             <p className={classes.homeText}>
                 Share something what's <br /> on your mind.
         </p>
-            <NavLink to='#get-started'>  <Button className={classes.homePageBtn}>Get started</Button></NavLink>
+            <Link to = 'get-started' spy={true} smooth={true} duration={1000}>  <Button className={classes.homePageBtn}>Get started</Button></Link>
 
         </div>
-        <NavBar />
+        <NavBar/>
 
     </header>
+
+    <GetStarted />
+
+
 
     </>
 

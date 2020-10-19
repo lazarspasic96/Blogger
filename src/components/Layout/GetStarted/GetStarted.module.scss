@@ -1,0 +1,73 @@
+.getStarted {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 100%;
+  margin-top: 3rem;
+
+  div {
+    background-color: #ffff;
+    padding: 2rem;
+    width: 22rem;
+    height: 25rem;
+    text-align: center;
+    box-shadow: 0rem 0rem 2rem #c4c4c4;
+    border-radius: 0.9rem;
+    margin: 0 1.9rem 4rem;
+    position: relative;
+    cursor: pointer;
+
+    h3 {
+      color: #414b56;
+      padding: 2rem;
+      font-size: 1.5rem;
+    }
+
+    span {
+      display: block;
+      margin-top: 1rem;
+      transition: all .1s;
+      &:hover {
+        color: #7510f7;
+        transform: scale(1.1);
+      }
+    }
+
+    .round {
+      position: absolute;
+      top: -2.3rem;
+      left: 6.5rem;
+      border-radius: 50%;
+      background-color: #12e7c0;
+      width: 5rem;
+      height: 5rem;
+
+      p {
+        font-family: "Playfair Display", serif;
+        position: absolute;
+        top: 0.1rem;
+        left: 1.8rem;
+        font-size: 3rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.getStartedBox {
+  background-color: #f3f3f3;
+
+  h1 {
+    padding: 5rem;
+    font-size: 2.6rem;
+    text-align: center;
+    color: #414b56;
+  }
+}
+
+.link {
+    text-decoration: none;
+}

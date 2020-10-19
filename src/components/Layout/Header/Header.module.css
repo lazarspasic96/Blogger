@@ -18,6 +18,7 @@
   font-size: 4.2rem;
   line-height: 5.8rem;
   letter-spacing: -0.15rem;
+  color: #414b56;
 
   animation: moveInLeft 1.5s ease-out;
   backface-visibility: hidden;
@@ -90,5 +91,13 @@
   100% {
     opacity: 1;
     transform: translate(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .homeText {
+      font-size: 2.6rem;
+      line-height: normal;
+      letter-spacing: 0rem;
   }
 }
