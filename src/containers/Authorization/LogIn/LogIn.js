@@ -120,7 +120,7 @@ class LogIn extends React.Component {
         let redirecting = null
 
         if (this.props.isAuth) {
-            return redirecting = <Redirect to='/dashboard' />
+            return redirecting = <Redirect to='/new-post' />
         }
 
         return <div className={classes.logIn}>

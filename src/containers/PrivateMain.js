@@ -23,7 +23,7 @@ class PrivateMain extends React.Component {
             <DashBoard>
 
                 <Switch>
-                    <Route exact path='/new-post' component={NewPost} />
+                    <Route  path='/new-post' component={NewPost} />
                     <Route path='/authorization' component={Authorization} />
                     <Route path='/logout' component={Logout} />
                     <Route path='/posts' component={Posts} />

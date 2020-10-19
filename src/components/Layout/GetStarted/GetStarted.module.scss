@@ -19,6 +19,12 @@
     margin: 0 1.9rem 4rem;
     position: relative;
     cursor: pointer;
+    transition: all .4s;
+
+    &:hover {
+ 
+        transform: scale(1.1);
+    }
 
     h3 {
       color: #414b56;
@@ -58,7 +64,7 @@
 }
 
 .getStartedBox {
-  background-color: #f3f3f3;
+  background-color:#ffff;
 
   h1 {
     padding: 5rem;
