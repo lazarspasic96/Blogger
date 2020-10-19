@@ -31,14 +31,14 @@ class Posts extends React.Component {
         return (
             <>
 
-                <section>
+                <section >
                     <header>
                         <h1 className={classes.title}>Trending Posts</h1>
                         <NavBar />
                     </header>
 
                     <main className={classes.articleContainer}>
-           {this.props.fetchedPosts.map(post => <Card postData = {post}/>)}
+           {this.props.fetchedPosts.map(post => <Card key = {post.id} postData = {post}/>)}
                     </main>
 
                 </section>

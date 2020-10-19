@@ -224,7 +224,22 @@ class EditPost extends React.Component {
 
         }
 
-        this.props.deletePost(id, data)
+        this.setState({
+            showModal: true
+        })
+    
+       
+        setTimeout(() => {
+            this.setState({
+                showModal: true
+            })
+            this.props.deletePost(id, data)
+              this.props.history.push('/my-posts')
+        
+        }, 1500);
+
+
+
 
     }
 

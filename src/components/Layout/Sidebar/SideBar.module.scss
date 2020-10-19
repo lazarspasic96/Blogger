@@ -1,11 +1,13 @@
 .sideBar {
   width: 25rem;
+  min-width: 25rem;
   background-color: #373b53;
   padding: 2rem 0rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh; 
+ 
 
   .logoBox {
     padding: 0rem 1rem 0rem;
@@ -89,11 +91,13 @@
  @media (max-width: 766px) {
   .sideBar {
     width: 9rem;
+    min-width: 9rem;
     height: 100vh;
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
   .iconBox {
+
     p {
       display: none;
     }
@@ -104,6 +108,7 @@
   }
 
   .logoBox  {
+    
     p {
       display: none;
     }

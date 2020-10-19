@@ -1,5 +1,5 @@
 .articleContainer {
-    width: 100%;
+    width: 80%;
     padding: 4rem;
     margin: auto;
     display: flex;
@@ -7,6 +7,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    height: 100vh;
 }
 
 .title {

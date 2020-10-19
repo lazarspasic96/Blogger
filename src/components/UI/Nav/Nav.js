@@ -10,7 +10,7 @@ class NavBar extends React.Component {
     }
 
     toogleNavBar = () => {
-        console.log('is')
+     
         this.setState(prevState => ({
             toogleClass: !prevState.toogleClass
         }))
@@ -21,15 +21,18 @@ class NavBar extends React.Component {
     render() {
 
         let routes = (<>
+          
             <li className={classes.item}>  <Link onClick = {this.toogleNavBar} className={classes.navLink} to='/authorization'>Log In </Link></li>
             <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/posts'>Articles </Link></li>
             <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/our-story'>Our Story </Link></li>
-            <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/get-started'> Get Stared </Link></li>
+            <li className={classes.item}>  <Link onClick = {this.toogleNavBar} className={classes.navLink} to='/'>Home</Link></li>
+           
         </>)
 
         if (this.props.isAuth) {
             routes = (
                 <>
+
                     <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/new-post'>New Post </Link></li>
                     <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/my-posts'>My Posts </Link></li>
                     <li className={classes.item}> <Link onClick = {this.toogleNavBar}className={classes.navLink} to='/posts'>Discover</Link></li>

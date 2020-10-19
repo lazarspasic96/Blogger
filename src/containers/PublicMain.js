@@ -1,11 +1,10 @@
 import React from 'react'
 import Header from '../components/Layout/Header/Header';
 import { Route, Switch } from 'react-router-dom'
-import Footer from '../components/Layout/Footer/Footer'
 import Authorization from './Authorization/Authorization';
 import Posts from './Posts/Posts';
 import ReadPost from './ReadPost/ReadPost';
-import GetStarted from '../components/Layout/GetStarted/GetStarted';
+import OurStory from '../components/Layout/OurStory/OurStory';
 
 
 class PublicMain extends React.Component {
@@ -20,6 +19,7 @@ class PublicMain extends React.Component {
                 <Route exact path='/posts' component={Posts} />
                 <Route exact path='/authorization' component={Authorization} />
                 <Route exact path='/post/:id' component={ReadPost} />
+                <Route exact path='/our-story' component={OurStory} />
             </Switch>
 
         </>
